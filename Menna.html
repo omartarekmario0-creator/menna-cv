@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منه رشوان خليل</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --main: #0d9488;          /* تركواز هادي */
+            --main-dark: #0f766e;
+            --main-light: #e0f2f1;
+            --text: #1e293b;
+            --soft: #f0fdfa;
+            --bg: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.75;
+        }
+
+        /* ===== Header ===== */
+        .hero {
+            background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%);
+            padding: 55px 0 75px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.07);
+            border-radius: 50%;
+            top: -80px;
+            left: -80px;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            bottom: -40px;
+            right: 10%;
+        }
+
+        .avatar {
+            width: 135px;
+            height: 135px;
+            border-radius: 50%;
+            border: 5px solid rgba(255,255,255,0.35);
+            object-fit: cover;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.18);
+        }
+
+        .hero h1 {
+            font-weight: 800;
+            font-size: 2.3rem;
+            margin-top: 18px;
+            color: white;
+        }
+
+        .hero .title {
+            display: inline-block;
+            background: rgba(255,255,255,0.18);
+            color: white;
+            padding: 7px 20px;
+            border-radius: 50px;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+
+        .hero .location {
+            color: rgba(255,255,255,0.9);
+            margin-top: 12px;
+            font-size: 0.95rem;
+        }
+
+        /* ===== Content ===== */
+        .content {
+            margin-top: -45px;
+            position: relative;
+            z-index: 10;
+            padding-bottom: 50px;
+        }
+
+        .card-custom {
+            background: white;
+            border-radius: 20px;
+            border: none;
+            box-shadow: 0 6px 25px rgba(13, 148, 136, 0.07);
+            padding: 28px;
+            height: 100%;
+        }
+
+        .section-icon {
+            width: 46px;
+            height: 46px;
+            background: var(--main-light);
+            color: var(--main);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin-left: 14px;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--text);
+            margin-bottom: 0;
+        }
+
+        /* Skills - Vertical */
+        .skill-item {
+            background: var(--soft);
+            color: var(--main-dark);
+            padding: 14px 18px;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            border-right: 4px solid var(--main);
+        }
+
+        .skill-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill-item i {
+            font-size: 1.3rem;
+            color: var(--main);
+        }
+
+        /* Hobbies - Vertical */
+        .hobby-item {
+            background: var(--soft);
+            border-radius: 14px;
+            padding: 16px 18px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 12px;
+        }
+
+        .hobby-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .hobby-icon {
+            width: 48px;
+            height: 48px;
+            background: white;
+            color: var(--main);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+            flex-shrink: 0;
+        }
+
+        .hobby-name {
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        /* Education */
+        .edu-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+
+        .edu-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--main);
+            border-radius: 50%;
+            margin-top: 8px;
+            flex-shrink: 0;
+        }
+
+        /* Contact */
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 14px;
+            background: var(--soft);
+            padding: 14px 16px;
+            border-radius: 14px;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-icon {
+            width: 42px;
+            height: 42px;
+            background: white;
+            color: var(--main);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            flex-shrink: 0;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.04);
+        }
+
+        /* Quote box */
+        .quote-box {
+            background: linear-gradient(135deg, #0d9488, #14b8a6);
+            color: white;
+            border-radius: 20px;
+            padding: 28px;
+            text-align: center;
+        }
+
+        .quote-box p {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .quote-box span {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 35px 0 30px;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* ========== Media Queries ========== */
+        @media (max-width: 575.98px) {
+            .hero {
+                padding: 40px 0 60px;
+            }
+            .avatar {
+                width: 115px;
+                height: 115px;
+            }
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+            .hero .title {
+                font-size: 0.9rem;
+            }
+            .content {
+                margin-top: -35px;
+            }
+            .card-custom {
+                padding: 22px;
+            }
+            .section-title {
+                font-size: 1.15rem;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .avatar {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <section class="hero text-center text-white">
+        <div class="container position-relative" style="z-index: 2;">
+            <img src="https://ui-avatars.com/api/?name=Menna+Rashwan&background=ffffff&color=0d9488&size=200&bold=true&font-size=0.4" 
+                 alt="منه رشوان" class="avatar">
+            
+            <h1>منه رشوان خليل</h1>
+            <div class="title">طالبة نظم معلومات وبرمجة</div>
+            <div class="location">
+                <i class="bi bi-geo-alt-fill"></i>
+                معهد الدلتا للحاسبات والمعلومات — المنصورة
+            </div>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <div class="container content">
+        <div class="row g-4">
+
+            <!-- About -->
+            <div class="col-lg-8">
+                <div class="card-custom">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="section-icon">
+                            <i class="bi bi-chat-quote-fill"></i>
+                        </div>
+                        <h3 class="section-title">نبذة عني</h3>
+                    </div>
+                    <p style="color: #475569; font-size: 1.05rem; margin-bottom: 12px;">
+                        أنا منه الله رشوان، طالبة في الصف الرابع الجامعي بمعهد الدلتا للحاسبات والمعلومات بالمنصورة، قسم نظم معلومات وبرمجة.
+                    </p>
+                    <p style="color: #475569; font-size: 1.05rem; margin-bottom: 0;">
+                        بحب أتعلم وأطور من نفسي باستمرار في مجال البرمجة وتقنية المعلومات، ودايماً بحاول أكتشف أدوات وتقنيات جديدة تساعدني أبقى أفضل. هدفي إني أبني مشاريع حقيقية وأشارك في مجال التكنولوجيا بثقة.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div class="col-lg-4">
+                <div class="card-custom">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="section-icon">
+                            <i class="bi bi-mortarboard-fill"></i>
+                        </div>
+                        <h3 class="section-title">التعليم</h3>
+                    </div>
+                    <div class="edu-item">
+                        <div class="edu-dot"></div>
+                        <div>
+                            <h6 class="fw-bold mb-1" style="font-size: 1.05rem;">معهد الدلتا للحاسبات والمعلومات</h6>
+                            <p class="mb-2" style="color: #64748b; font-size: 0.95rem;">قسم نظم معلومات وبرمجة</p>
+                            <span class="badge rounded-pill" style="background: var(--main-light); color: var(--main-dark); font-size: 0.85rem;">
+                                الصف الرابع الجامعي
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills -->
+            <div class="col-md-6">
+                <div class="card-custom">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="section-icon">
+                            <i class="bi bi-code-slash"></i>
+                        </div>
+                        <h3 class="section-title">المهارات التقنية</h3>
+                    </div>
+
+                    <div class="skill-item">
+                        <i class="bi bi-filetype-html"></i>
+                        <span>HTML</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="bi bi-filetype-css"></i>
+                        <span>CSS</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="bi bi-filetype-py"></i>
+                        <span>Python</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="bi bi-file-earmark-word"></i>
+                        <span>Microsoft Word</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hobbies -->
+            <div class="col-md-6">
+                <div class="card-custom">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="section-icon">
+                            <i class="bi bi-heart-fill"></i>
+                        </div>
+                        <h3 class="section-title">هواياتي</h3>
+                    </div>
+
+                    <div class="hobby-item">
+                        <div class="hobby-icon">
+                            <i class="bi bi-book"></i>
+                        </div>
+                        <div class="hobby-name">قراءة الروايات</div>
+                    </div>
+                    <div class="hobby-item">
+                        <div class="hobby-icon">
+                            <i class="bi bi-airplane"></i>
+                        </div>
+                        <div class="hobby-name">السفر</div>
+                    </div>
+                    <div class="hobby-item">
+                        <div class="hobby-icon">
+                            <i class="bi bi-trophy"></i>
+                        </div>
+                        <div class="hobby-name">الألعاب الرياضية</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects -->
+            <div class="col-lg-7">
+                <div class="card-custom">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="section-icon">
+                            <i class="bi bi-folder2-open"></i>
+                        </div>
+                        <h3 class="section-title">مشروعاتي</h3>
+                    </div>
+                    <p style="color: #475569; font-size: 1.08rem; margin-bottom: 0;">
+                        هذا أول مشروع ليا، والقادم أفضل بإذن الله ❤️
+                    </p>
+                    <p style="color: #64748b; font-size: 0.95rem; margin-top: 10px; margin-bottom: 0;">
+                        بدأت رحلتي في عالم البرمجة من هنا، وده مجرد البداية. كل يوم بتعلم حاجة جديدة، وهدفى إني أطور مشاريعي المستقبلية بشكل أفضل.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="col-lg-5">
+                <div class="card-custom">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="section-icon">
+                            <i class="bi bi-envelope-fill"></i>
+                        </div>
+                        <h3 class="section-title">تواصل معي</h3>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="bi bi-telephone-fill"></i>
+                        </div>
+                        <div>
+                            <small style="color: #94a3b8; font-size: 0.8rem;">رقم الهاتف</small>
+                            <div style="font-weight: 600; font-size: 1.05rem;">01000000000</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="bi bi-envelope-at-fill"></i>
+                        </div>
+                        <div>
+                            <small style="color: #94a3b8; font-size: 0.8rem;">البريد الإلكتروني</small>
+                            <div style="font-weight: 600; font-size: 1.05rem;">menna.rashwan@example.com</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quote / Goal -->
+            <div class="col-12">
+                <div class="quote-box">
+                    <p>"كل يوم خطوة جديدة نحو حلم أكبر"</p>
+                    <span>مستمرة في التعلم والتطوير ✨</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            صُممت بكل حب 💚
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
